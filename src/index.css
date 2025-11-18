@@ -35,8 +35,12 @@
         @apply p-4 rounded-2xl bg-zinc-800 shadow-2xl;
     }
 
-    .time-card {
+    .timer-card {
         @apply h-full w-[200px] flex flex-col justify-between items-center text-9xl p-6 rounded-2xl bg-zinc-900;
+    }
+
+    .stopwatch-card {
+        @apply h-full w-[200px] flex flex-col justify-center items-center text-9xl p-6 rounded-2xl bg-zinc-900;
     }
 
     .btn-arrow {

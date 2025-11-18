@@ -1,22 +1,20 @@
 import { useState, useEffect } from "react";
 
-export default function useTimer() {
+export default function useTime(timeType: boolean) {
     const [isRunning, setIsRunning] = useState(false);
     const [time, setTime] = useState(0);
 
     useEffect(() => {
         let interval: NodeJS.Timeout | null;
-
         if (isRunning) {
             interval = setInterval(() => {
                 setTime((prev) => {
-                    const newTime = prev - 1;
+                    const newTime = prev + (timeType == false ? 1 : -1);
 
                     if (newTime <= 0) {
                         setIsRunning(false);
                         return 0;
                     }
-
                     return newTime;
                 });
             }, 1000);
@@ -27,7 +25,7 @@ export default function useTimer() {
                 clearInterval(interval);
             }
         };
-    }, [isRunning]);
+    }, [isRunning, timeType]);
 
     return { isRunning, setIsRunning, time, setTime };
 }

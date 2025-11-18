@@ -1,11 +1,14 @@
-import useStopwatch from "./useStopwatch.tsx";
+type timerProps = {
+    time: number;
+    isRunning: boolean;
+    setIsRunning: React.Dispatch<React.SetStateAction<boolean>>;
+    setTime: React.Dispatch<React.SetStateAction<number>>;
+};
 
-export default function Stopwatch() {
-    const { isRunning, setIsRunning, time, setTime } = useStopwatch();
-
-    const hours = Math.floor(time / 3600);
-    const minutes = Math.floor((time % 3600) / 60);
-    const seconds = time % 60;
+export default function Stopwatch(props: timerProps) {
+    const hours = Math.floor(props.time / 3600);
+    const minutes = Math.floor((props.time % 3600) / 60);
+    const seconds = props.time % 60;
 
     const tenthsHour = Math.floor(hours / 10);
     const onesHour = hours % 10;
@@ -13,19 +16,6 @@ export default function Stopwatch() {
     const onesMinute = minutes % 10;
     const tenthsSecond = Math.floor(seconds / 10);
     const onesSecond = seconds % 10;
-
-    function handleStart() {
-        if (!isRunning) {
-            setIsRunning(true);
-        } else {
-            setIsRunning(false);
-        }
-    }
-
-    function handleReset() {
-        setIsRunning(false);
-        setTime(0);
-    }
 
     return (
         <>
@@ -36,8 +26,8 @@ export default function Stopwatch() {
                 <div className="gap-8">
                     <div className="h-80 card flex gap-4">
                         <div className="flex gap-4">
-                            <div className="time-card">{tenthsHour}</div>
-                            <div className="time-card">{onesHour}</div>
+                            <div className="stopwatch-card">{tenthsHour}</div>
+                            <div className="stopwatch-card">{onesHour}</div>
                         </div>
                         <div className="w-4 flex flex-col self-center gap-16">
                             <svg
@@ -55,8 +45,8 @@ export default function Stopwatch() {
                             </svg>
                         </div>
                         <div className="flex gap-4">
-                            <div className="time-card">{tenthsMinute}</div>
-                            <div className="time-card">{onesMinute}</div>
+                            <div className="stopwatch-card">{tenthsMinute}</div>
+                            <div className="stopwatch-card">{onesMinute}</div>
                         </div>
                         <div className="w-4 flex flex-col self-center gap-16">
                             <svg
@@ -74,19 +64,10 @@ export default function Stopwatch() {
                             </svg>
                         </div>
                         <div className="flex gap-4">
-                            <div className="time-card">{tenthsSecond}</div>
-                            <div className="time-card">{onesSecond}</div>
+                            <div className="stopwatch-card">{tenthsSecond}</div>
+                            <div className="stopwatch-card">{onesSecond}</div>
                         </div>
                     </div>
-                </div>
-                <div className="w-full flex gap-8 justify-center items-center">
-                    <button className="btn-primary" onClick={handleStart}>
-                        {isRunning ? "Stop" : "Start"}
-                    </button>
-                    <button className="btn-primary" onClick={handleReset}>
-                        Reset
-                    </button>
-                    <button className="btn-primary">Mode</button>
                 </div>
             </div>
         </>
