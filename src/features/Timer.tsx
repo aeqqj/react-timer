@@ -52,7 +52,7 @@ export default function Timer(props: timerProps) {
     return (
         <>
             <div className="h-[500px] flex flex-col gap-4">
-                <div className="card inline-block text-xl text-center w-42">
+                <div className="card w-fit px-6 text-md text-center ">
                     Timer
                 </div>
                 <div className="gap-8">
@@ -62,7 +62,7 @@ export default function Timer(props: timerProps) {
                                 <button onClick={() => updateTime(6, "up")}>
                                     <ChevronUp />
                                 </button>
-                                {tenthsHour}
+                                <p className="pt-4">{tenthsHour}</p>
                                 <button onClick={() => updateTime(6, "down")}>
                                     <ChevronDown />
                                 </button>
@@ -71,7 +71,7 @@ export default function Timer(props: timerProps) {
                                 <button onClick={() => updateTime(5, "up")}>
                                     <ChevronUp />
                                 </button>
-                                {onesHour}
+                                <p className="pt-4">{onesHour}</p>
                                 <button onClick={() => updateTime(5, "down")}>
                                     <ChevronDown />
                                 </button>
@@ -97,7 +97,7 @@ export default function Timer(props: timerProps) {
                                 <button onClick={() => updateTime(4, "up")}>
                                     <ChevronUp />
                                 </button>
-                                {tenthsMinute}
+                                <p className="pt-4">{tenthsMinute}</p>
                                 <button onClick={() => updateTime(4, "down")}>
                                     <ChevronDown />
                                 </button>
@@ -106,7 +106,7 @@ export default function Timer(props: timerProps) {
                                 <button onClick={() => updateTime(3, "up")}>
                                     <ChevronUp />
                                 </button>
-                                {onesMinute}
+                                <p className="pt-4">{onesMinute}</p>
                                 <button onClick={() => updateTime(3, "down")}>
                                     <ChevronDown />
                                 </button>
@@ -132,7 +132,7 @@ export default function Timer(props: timerProps) {
                                 <button onClick={() => updateTime(2, "up")}>
                                     <ChevronUp />
                                 </button>
-                                {tenthsSecond}
+                                <p className="pt-4">{tenthsSecond}</p>
                                 <button onClick={() => updateTime(2, "down")}>
                                     <ChevronDown />
                                 </button>
@@ -141,7 +141,7 @@ export default function Timer(props: timerProps) {
                                 <button onClick={() => updateTime(1, "up")}>
                                     <ChevronUp />
                                 </button>
-                                {onesSecond}
+                                <p className="pt-4">{onesSecond}</p>
                                 <button onClick={() => updateTime(1, "down")}>
                                     <ChevronDown />
                                 </button>

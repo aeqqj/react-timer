@@ -1,5 +1,12 @@
 @import "tailwindcss";
 
+@font-face {
+    font-family: "Digital";
+    src: url("../public/fonts/Technology.ttf") format("truetype");
+    font-weight: 400;
+    line-height: -5;
+}
+
 :root {
     font-family:
         system-ui,
@@ -7,19 +14,12 @@
         BlinkMacSystemFont,
         "Segoe UI",
         Roboto,
-        Oxygen,
-        Ubuntu,
-        Cantarell,
-        "Open Sans",
-        "Helvetica Neue",
         sans-serif;
     line-height: 1.5;
     font-weight: 400;
-
     color-scheme: light dark;
     color: rgba(255, 255, 255, 0.87);
     background-color: oklch(21% 0.006 285.885);
-
     font-synthesis: none;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
@@ -28,7 +28,7 @@
 
 @layer components {
     .btn-primary {
-        @apply h-16 w-28 rounded-xl bg-zinc-800 shadow-xl flex items-center justify-center text-zinc-300;
+        @apply h-fit w-fit py-4 px-8 rounded-xl bg-zinc-800 shadow-xl flex items-center justify-center text-zinc-300 transition-all duration-150 hover:scale-110 active:scale-95;
     }
 
     .card {
@@ -50,4 +50,9 @@
 
 button {
     cursor: pointer;
+}
+
+.timer-card,
+.stopwatch-card {
+    font-family: Digital;
 }

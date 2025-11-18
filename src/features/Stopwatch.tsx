@@ -20,14 +20,18 @@ export default function Stopwatch(props: timerProps) {
     return (
         <>
             <div className="h-[500px] flex flex-col gap-4">
-                <div className="card inline-block text-xl text-center w-42">
+                <div className="card w-fit px-6 text-md text-center">
                     Stopwatch
                 </div>
                 <div className="gap-8">
                     <div className="h-80 card flex gap-4">
                         <div className="flex gap-4">
-                            <div className="stopwatch-card">{tenthsHour}</div>
-                            <div className="stopwatch-card">{onesHour}</div>
+                            <div className="stopwatch-card pt-10">
+                                {tenthsHour}
+                            </div>
+                            <div className="stopwatch-card pt-10">
+                                {onesHour}
+                            </div>
                         </div>
                         <div className="w-4 flex flex-col self-center gap-16">
                             <svg
@@ -45,8 +49,12 @@ export default function Stopwatch(props: timerProps) {
                             </svg>
                         </div>
                         <div className="flex gap-4">
-                            <div className="stopwatch-card">{tenthsMinute}</div>
-                            <div className="stopwatch-card">{onesMinute}</div>
+                            <div className="stopwatch-card pt-10">
+                                {tenthsMinute}
+                            </div>
+                            <div className="stopwatch-card pt-10">
+                                {onesMinute}
+                            </div>
                         </div>
                         <div className="w-4 flex flex-col self-center gap-16">
                             <svg
@@ -64,8 +72,12 @@ export default function Stopwatch(props: timerProps) {
                             </svg>
                         </div>
                         <div className="flex gap-4">
-                            <div className="stopwatch-card">{tenthsSecond}</div>
-                            <div className="stopwatch-card">{onesSecond}</div>
+                            <div className="stopwatch-card pt-10">
+                                {tenthsSecond}
+                            </div>
+                            <div className="stopwatch-card pt-10">
+                                {onesSecond}
+                            </div>
                         </div>
                     </div>
                 </div>
