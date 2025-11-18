@@ -29,18 +29,40 @@ export default function Timer() {
     }
 
     function updateTime(place: number, direction: "up" | "down"): void {
-        const amount = 10 ** (place - 1); // NGANO DI MOGANA NGA
+        let amount = 0;
 
-        setTime((prev) =>
-            direction === "up" ? prev + amount : Math.max(0, prev - amount),
-        ); // dis shi stops it from going negative bruh
+        switch (place) {
+            case 6:
+                amount = 36000;
+                break;
+            case 5:
+                amount = 3600;
+                break;
+            case 4:
+                amount = 600;
+                break;
+            case 3:
+                amount = 60;
+                break;
+            case 2:
+                amount = 10;
+                break;
+            case 1:
+                amount = 1;
+                break;
+        }
+
+        setTime((prev) => {
+            const newTime = direction === "up" ? prev + amount : prev - amount;
+            return Math.max(0, newTime);
+        });
     }
 
     return (
         <>
             <div className="h-[500px] flex flex-col gap-4">
                 <div className="card inline-block text-xl text-center w-42">
-                    Stopwatch
+                    Timer
                 </div>
                 <div className="gap-8">
                     <div className="h-80 card flex gap-4">
